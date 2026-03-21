@@ -21,10 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
+        <script dangerouslySetInnerHTML={{
+          __html: `
+              const theme = localStorage.getItem('theme');
+              if (theme === 'dark') document.documentElement.classList.add('dark');
+          `
+        }} />
         <ThemeProvider>
           <SoundProvider>
             <Header />
-            <main className="max-w-4xl mx-auto px-8 flex-1">{children}</main>
+              <main className="flex-1 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40">{children}</main>
             <Footer />
           </SoundProvider>
         </ThemeProvider>

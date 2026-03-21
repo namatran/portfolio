@@ -15,6 +15,12 @@ export function Footer() {
                 <a href="https://github.com/namatran" target="_blank" rel="noopener noreferrer" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text-hover)]">
                     GitHub
                 </a>   
+                <a href="https://www.youtube.com/@naminabush" target="_blank" rel="noopener noreferrer" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text-hover)]">
+                    YouTube
+                </a>   
+                <a href="https://www.instagram.com/naminabush/" target="_blank" rel="noopener noreferrer" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text-hover)]">
+                    Instagram
+                </a>   
             </nav>
         </footer>
     );
