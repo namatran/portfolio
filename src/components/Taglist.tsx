@@ -16,7 +16,7 @@ export function TagList({ tags, size = 'md' }: Props) {
             {tags.map((tag, i) => (
                 <span
                     key={i}
-                    className={`rounded inline-block transition-transform duration-200 hover:translate-y-0.5 cursor-default text-xs ${size === 'sm' ? 'px-2 py-1' : 'px-3 py-1'}`}
+                    className={`rounded inline-block transition-transform duration-100 hover:translate-y-0.5 cursor-default text-xs ${size === 'sm' ? 'px-2 py-1' : 'px-3 py-1'}`}
                     style={{ background: 'rgba(26,139,122,0.1)', color: 'var(--accent-primary)' }}
                     onMouseEnter={() => playNote()}
                 >
