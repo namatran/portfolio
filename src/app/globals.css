@@ -5,6 +5,7 @@
   --light-bg-secondary: #F3F1ED;
   --light-text: #0F0F0D;
   --light-text-secondary: #72706B;
+  --light-text-hover: #8B8985;
   --light-border: #E8E6E1;
   --accent-primary: #1A8B7A;
   --accent-cta: #FBBF24;
@@ -15,6 +16,7 @@ html.dark {
   --light-bg-secondary: #1A1815;
   --light-text: #F5F5F3;
   --light-text-secondary: #9E9B94;
+  --light-text-hover: #B5B2AB;
   --light-border: #2A2926;
   --accent-cta: #1A8B7A;
 }

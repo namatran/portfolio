@@ -50,16 +50,16 @@ export function Header() {
     return (
     // Semantic HTML first use same as <div>
         <header className="flex justify-between items-center py-6 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 border-b" style={{ borderColor: 'var(--light-border)' }}>    
-            <Link href="/" className="text-xl font-semibold tracking-[-0.5px]">Nam Tran</Link>
+            <Link href="/" className="text-xl font-semibold tracking-[-0.5px] transition-colors hover:text-[var(--light-text-secondary)]">Nam Tran</Link>
             
             <nav className="flex gap-8 text-sm font-medium">
-                <Link href="/" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text)] transition-colors">
+                <Link href="/" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     Home
                 </Link>
-                <Link href="/work" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text)] transition-colors">
+                <Link href="/work" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     Work
                 </Link>
-                <Link href="/about" className="text-[var(--light-text-secondary)] hover:text-[var(--light-text)] transition-colors">
+                <Link href="/about" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     About
                 </Link>
             </nav>
