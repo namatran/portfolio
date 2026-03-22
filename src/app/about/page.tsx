@@ -39,7 +39,7 @@ export default function AboutPage() {
                 <h1 className="section-label">Education</h1>
 
                 <div className="border-l-2 pl-3 pt-2.5 pb-3 border-[var(--light-text-hover)]">
-                    <p className="section-text mb-1">STEM coursework focused including all AP Physics, computer science, and AP Math + AP seminar.</p>
+                    <p className="section-text mb-1">STEM coursework focused including all AP Physics, computer science, and AP Math + AP seminar</p>
                     <p className="text-xs uppercase text-[var(--light-text-hover)]">(Houston Klein High School Class of 2026)</p>
                 </div>
             </article>
@@ -48,9 +48,10 @@ export default function AboutPage() {
                 <h1 className="section-label">Currently:</h1>
 
                 <ul className="section-text ml-6 list-disc">
-                    <li className="mb-2">focused on fullstack web and mobile app projects</li>
-                    <li className="mb-2">going to build a site for my mom's ao dai sewing   </li>
-                    <li className="mb-2">working to post long-form videos on youtube about projects and entrepreneurship. (I might need to invest in a camera or clear my storage)</li>
+                    <li className="mb-2">focused on fullstack apps and mobile app projects</li>
+                    <li className="mb-2">going to build a site for my mom's ao dai sewing</li>
+                    <li className="mb-2">working to post long-form videos on youtube about projects and entrepreneurship (I might need to invest in a camera or clear my storage)</li>
+                    <li className="mb-2">working towards consistent one arm pull up</li>
                 </ul>
             </article>
 
@@ -58,9 +59,9 @@ export default function AboutPage() {
                 <h1 className="section-label">Other Interests</h1>
 
                 <ul className="section-text ml-6 list-disc">
-                    <li className="mb-2">calisthenics + martial arts (vovinam),</li>
-                    <li className="mb-2">anime & manga,</li>
-                    <li className="mb-2">volleyball w/ friends,</li>
+                    <li className="mb-2">calisthenics + martial arts (vovinam)</li>
+                    <li className="mb-2">anime & manga</li>
+                    <li className="mb-2">volleyball w/ friends</li>
                     <li className="mb-2">engineering real projects (robotics, arduino, electronics)</li>
                 </ul>
             </article>

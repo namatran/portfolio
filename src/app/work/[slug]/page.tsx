@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { ProjectNav } from '@/components/ProjectNav'
 import { TagList } from '@/components/Taglist'
 import { Links } from '@/components/Links'
-import { ProjectGallery } from '@/components/ProjectGallery'
+import { Gallery } from '@/components/Gallery'
 
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params)
@@ -58,7 +58,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                 {project.images && project.images.length > 0 && (
                     <section className="mb-8">
                         <p className="section-label">Gallery</p>
-                        <ProjectGallery images={project.images} />
+                        <Gallery images={project.images} />
                     </section>
                 )}
             </div>

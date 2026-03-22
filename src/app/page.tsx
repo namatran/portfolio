@@ -11,9 +11,9 @@ export default function Home() {
     <main>
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
           <div className="text-[13px] leading-[1.1] font-medium uppercase tracking-[0.08em] mb-4 text-[var(--light-text-secondary)]">Full-stack builder</div>
-          <h1 className="text-5xl font-medium mb-6 max-w-150">Shipping software that works</h1>
+          <h1 className="text-5xl font-medium mb-6 max-w-150">Shipping software & building projects</h1>
           <p className="text-[16px] leading-[1.6] max-w-125 mb-10 text-[var(--light-text-secondary)]">
-            10th grade. Building real products. Learning in public. Pushing myself through code and calisthenics.
+            10th grade. Building full-stack apps, documenting learning, and working toward entrepreneurship.
           </p>
 
           <CTAButton/>

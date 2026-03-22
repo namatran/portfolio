@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { useNoteSound } from '@/lib/useNoteSound'
 
-export function ProjectGallery({ images }: { images: string[] }) {
+export function Gallery({ images }: { images: string[] }) {
     const [selected, setSelected] = useState<string | null>(null)
     
     const { playClick, playExit } = useNoteSound()
