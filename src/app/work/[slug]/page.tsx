@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 import { ProjectNav } from '@/components/ProjectNav'
 import { TagList } from '@/components/Taglist'
-import { ProjectLinks } from '@/components/ProjectLinks'
+import { Links } from '@/components/Links'
 import { ProjectGallery } from '@/components/ProjectGallery'
 
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -18,7 +18,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
         <main className="py-12">
             <ProjectNav />
 
-            <h1 className="page-title mb-6">{project.title}</h1>                
+            <h1 className="page-title mb-6">{project.title}</h1>      
 
             { /* <div className="w-full h-136 bg-gradient-to-tr from-emerald-600/[0.1] to-yellow-500/[0.1] rounded-lg flex items-center justify-center text-[120px] mb-12">
                 {project.image} 
@@ -40,27 +40,27 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                 
                 {project.sections.map((section, i) => (
                     <section key={i} className="mb-8">
-                        <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>{section.label}</p>
-                        <p className="text-sm leading-relaxed">{section.content}</p>
+                        <p className="section-label">{section.label}</p>
+                        <p className="section-text">{section.content}</p>
                     </section>
                 ))}
 
-                {project.images && project.images.length > 0 && (
-                    <section className="mb-8">
-                        <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>Gallery</p>
-                        <ProjectGallery images={project.images} />
-                    </section>
-                )}
-
                 <section className="mb-8">
-                    <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>Tools & Skills</p>
+                    <p className="section-label">Tools & Skills</p>
                         <TagList tags={project.tags}/>
                 </section>
 
-                <section>
-                    <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>Links</p>
-                    <ProjectLinks links={project.links}/>
+                <section className='mb-8'>
+                    <p className="section-label">Links</p>
+                    <Links links={project.links}/>
                 </section>
+
+                {project.images && project.images.length > 0 && (
+                    <section className="mb-8">
+                        <p className="section-label">Gallery</p>
+                        <ProjectGallery images={project.images} />
+                    </section>
+                )}
             </div>
 
         </main>

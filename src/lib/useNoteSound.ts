@@ -23,5 +23,17 @@ export function useNoteSound() {
         }
     }
 
-    return { playNote, playClick }
+    const playClick2 = () => {
+        if (soundEnabled) {
+            new Audio('/sounds/zapsplat_multimedia_button_click_bright_001_92098.mp3').play()
+        }
+    }
+
+    const playExit = () => {
+        if (soundEnabled) {
+            new Audio('/sounds/zapsplat_multimedia_click_003_19369.mp3').play()
+        }
+    }
+
+    return { playNote, playClick, playClick2, playExit }
 }

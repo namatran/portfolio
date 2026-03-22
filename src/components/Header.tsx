@@ -7,11 +7,14 @@ import { BsSun, BsMoon, BsVolumeUp, BsVolumeMute } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useSound } from '@/components/SoundProvider';
+import { useNoteSound } from '@/lib/useNoteSound';
 
 export function Header() {
     const [isDark, setIsDark] = useState(false);
     const [mounted, setMounted] = useState(false); // Forgot this
     const { soundEnabled, toggleSound } = useSound();
+
+    const { playClick } = useNoteSound()
 
     useEffect(() => {
         // This runs AFTER the component is on the page
@@ -52,14 +55,16 @@ export function Header() {
         <header className="flex justify-between items-center py-6 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40 border-b" style={{ borderColor: 'var(--light-border)' }}>    
             <Link href="/" className="text-xl font-semibold tracking-[-0.5px] transition-colors hover:text-[var(--light-text-secondary)]">Nam Tran</Link>
             
-            <nav className="flex gap-8 text-sm font-medium">
-                <Link href="/" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
+            <nav 
+                className="flex gap-8 text-sm font-medium"
+            >
+                <Link href="/" onClick={() => { playClick() }} className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     Home
                 </Link>
-                <Link href="/work" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
+                <Link href="/work" onClick={() => { playClick() }} className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     Work
                 </Link>
-                <Link href="/about" className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
+                <Link href="/about" onClick={() => { playClick() }} className="text-[var(--light-text-secondary)] transition-colors hover:text-[var(--light-text-hover)]">
                     About
                 </Link>
             </nav>

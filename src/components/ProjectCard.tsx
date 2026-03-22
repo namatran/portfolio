@@ -9,10 +9,10 @@ import { useNoteSound } from '@/lib/useNoteSound';
 import Image from 'next/image';
 
 export function ProjectCard({ project }: { project: Project }) {
-    const { playClick } = useNoteSound()
+    const { playClick2 } = useNoteSound()
 
     return (
-        <Link href={`/work/${project.slug}`} onClick={() => playClick()} className={styles.card}>
+        <Link href={`/work/${project.slug}`} onClick={() => playClick2()} className={styles.card}>
             <div className={styles.image}>
                 <Image
                     src={project.image}

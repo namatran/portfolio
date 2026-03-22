@@ -8,11 +8,13 @@ export type Project = {
     sections: Array<{ label: string; content: string }>;
     tags: string[];
     links: Array<{ text: string; url: string }>;
+    featured?: boolean;
 }
 
 export const projects: Project[] = [
     {
         id: 'movie-lookup',
+        featured: true,
         slug: 'movie-lookup',
         image: '/video.png',
         images: [ '/video.png' ],
