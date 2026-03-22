@@ -6,13 +6,21 @@ import { Project } from "@/lib/projects";
 import styles from './ProjectCard.module.css'
 import { TagList } from './Taglist';
 import { useNoteSound } from '@/lib/useNoteSound';
+import Image from 'next/image';
 
 export function ProjectCard({ project }: { project: Project }) {
     const { playClick } = useNoteSound()
 
     return (
         <Link href={`/work/${project.slug}`} onClick={() => playClick()} className={styles.card}>
-            <div className={styles.image}>{project.image}</div>
+            <div className={styles.image}>
+                <Image
+                    src={project.image}
+                    alt="Project image"
+                    fill
+                    className="object-cover"
+                />
+            </div>
             
             <div className={styles.content}>
                 <h3 className={styles.title}>{project.title}</h3>

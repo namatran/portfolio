@@ -4,6 +4,7 @@ export type Project = {
     title: string;
     description: string;
     image: string;
+    images?: string[]
     sections: Array<{ label: string; content: string }>;
     tags: string[];
     links: Array<{ text: string; url: string }>;
@@ -13,7 +14,8 @@ export const projects: Project[] = [
     {
         id: 'movie-lookup',
         slug: 'movie-lookup',
-        image: '🎬',
+        image: '/video.png',
+        images: [ '/video.png' ],
         title: 'Movie Lookup V2',
         description: 'Full-stack app with user authentication and personalized watchlists. Built with Next.js and Supabase.',
         sections: [
@@ -29,7 +31,7 @@ export const projects: Project[] = [
     {
         id: 'book-keeper',
         slug: 'book-keeper',
-        image: '📚',
+        image: '/video.png',
         title: 'Book Keeper',
         description: 'REST API with multi-table schema, complex JOINs, and advanced SQL queries. Shows backend depth.',
         sections: [

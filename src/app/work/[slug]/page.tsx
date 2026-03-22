@@ -1,12 +1,12 @@
 import { use } from 'react'
-import Link from 'next/link'
 import { projects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 
 import { ProjectNav } from '@/components/ProjectNav'
 import { TagList } from '@/components/Taglist'
 import { ProjectLinks } from '@/components/ProjectLinks'
-
+import { ProjectGallery } from '@/components/ProjectGallery'
 
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params)
@@ -20,9 +20,18 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
 
             <h1 className="page-title mb-6">{project.title}</h1>                
 
-            <div className="w-full h-136 bg-gradient-to-tr from-emerald-600/[0.1] to-yellow-500/[0.1] rounded-lg flex items-center justify-center text-[120px] mb-12">
+            { /* <div className="w-full h-136 bg-gradient-to-tr from-emerald-600/[0.1] to-yellow-500/[0.1] rounded-lg flex items-center justify-center text-[120px] mb-12">
                 {project.image} 
-            </div>   
+            </div> */}
+
+            <div className="relative w-full h-136 rounded-xl overflow-hidden mb-12">
+                <Image
+                    src={project.image}
+                    alt="Project image"
+                    fill
+                    className="object-cover"
+                />
+            </div>
 
             <hr className="divider mb-12" />
 
@@ -35,6 +44,13 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                         <p className="text-sm leading-relaxed">{section.content}</p>
                     </section>
                 ))}
+
+                {project.images && project.images.length > 0 && (
+                    <section className="mb-8">
+                        <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>Gallery</p>
+                        <ProjectGallery images={project.images} />
+                    </section>
+                )}
 
                 <section className="mb-8">
                     <p className="text-xs uppercase tracking-widest mb-3" style={{ color: 'var(--light-text-secondary)' }}>Tools & Skills</p>
