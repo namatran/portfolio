@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main>
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-          <div className="text-[13px] leading-[1.1] font-medium uppercase tracking-[0.08em] mb-4 text-[var(--light-text-secondary)]">Full-stack builder</div>
-          <h1 className="text-5xl font-medium mb-6 max-w-150">Shipping software & building projects</h1>
+          <div className="text-[13px] leading-[1.1] font-medium uppercase tracking-[0.08em] mb-4 text-[var(--light-text-secondary)]">Full-stack + Content Creation</div>
+          <h1 className="text-5xl font-medium mb-6 max-w-150">Building projects</h1>
           <p className="text-[16px] leading-[1.6] max-w-125 mb-10 text-[var(--light-text-secondary)]">
-            10th grade. Building full-stack apps, documenting learning, and working toward entrepreneurship.
+            10th grade, coding, and working towards freelancing.
           </p>
 
           <CTAButton/>
