@@ -51,6 +51,7 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                     height={675}
                     className="w-full h-auto"
                     priority
+                    sizes="(max-width: 768px) 100vw, 1200px"
                 />
             </div>
 
