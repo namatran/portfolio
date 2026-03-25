@@ -1,5 +1,11 @@
+import type { Metadata } from 'next'
 import { Links } from "@/components/Links";
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+    title: 'About',
+    description: '10th grade full-stack developer. Building apps, creating YouTube content, and working toward freelancing.',
+}
 
 export default function AboutPage() {
 
@@ -9,7 +15,7 @@ export default function AboutPage() {
 
         <hr className="divider mb-6"></hr>
 
-        <div className="flex items-center gap-8 mb-12">
+        <div className="flex items-center gap-8 mb-12 flex-wrap">
             <Image
                 src="/nam2.png"
                 alt="Nam Tran"

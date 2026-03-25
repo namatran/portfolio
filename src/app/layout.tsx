@@ -1,39 +1,53 @@
 import type { Metadata } from 'next';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { cookies } from 'next/headers';
 import { SoundProvider } from '@/components/SoundProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Nam - Portfolio',
-  description: 'Full-stack developer & builder',
-  icons: {
-    icon: '/favicon.svg',
+  title: {
+    default: 'Nam Tran — Full-Stack Developer',
+    template: '%s | Nam Tran',
   },
+  description: 'Full-stack developer and builder. 10th grade, shipping real projects with React, Next.js, Node.js, and more.',
+  keywords: ['full-stack', 'developer', 'Next.js', 'React', 'portfolio', 'Nam Tran'],
+  authors: [{ name: 'Nam Tran' }],
+  openGraph: {
+    title: 'Nam Tran — Full-Stack Developer',
+    description: 'Full-stack developer and builder. Shipping real projects.',
+    url: 'https://namatran.com',
+    siteName: 'Nam Tran',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Nam Tran — Full-Stack Developer',
+    description: 'Full-stack developer and builder. Shipping real projects.',
+  },
+  icons: { icon: '/favicon.svg' },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value ?? 'light';
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={theme === 'dark' ? 'dark' : ''} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <script dangerouslySetInnerHTML={{
-          __html: `
-              const theme = localStorage.getItem('theme');
-              if (theme === 'dark') document.documentElement.classList.add('dark');
-          `
-        }} />
-        <ThemeProvider>
-          <SoundProvider>
-            <Header />
-              <main className="flex-1 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40">{children}</main>
-            <Footer />
-          </SoundProvider>
-        </ThemeProvider>
+        <SoundProvider>
+          <Header />
+          <main className="flex-1 px-6 sm:px-10 md:px-10 lg:px-20 xl:px-40">
+            {children}
+          </main>
+          <Footer />
+        </SoundProvider>
       </body>
     </html>
   );

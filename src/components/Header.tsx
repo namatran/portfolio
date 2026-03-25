@@ -1,6 +1,6 @@
 // HEADER - navigation bar and light/dark mode.
-// Light/Dark mode button updates localStorage for ThemeProvider
-// uses Header useEffect to check for the theme upon starting
+// Theme is set server-side via cookie in layout.tsx — no flash.
+// Header reads cookie on mount to sync isDark state with what server rendered.
 'use client';
 
 import { BsSun, BsMoon, BsVolumeUp, BsVolumeMute } from 'react-icons/bs';
@@ -13,15 +13,17 @@ export function Header() {
     const [isDark, setIsDark] = useState(false);
     const [mounted, setMounted] = useState(false); // Forgot this
     const { soundEnabled, toggleSound } = useSound();
-
     const { playClick } = useNoteSound()
 
     useEffect(() => {
-        // This runs AFTER the component is on the page
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
+        // Read cookie instead of localStorage to match what server rendered
+        const theme = document.cookie
+            .split('; ')
+            .find(r => r.startsWith('theme='))
+            ?.split('=')[1] ?? 'light';
+        if (theme === 'dark') {
             document.documentElement.classList.add('dark');
-            setIsDark(true); // ← Also forgot this isDark here
+            setIsDark(true);
         }
         setMounted(true);
     }, []); // Empty dependency array = run once on mount
@@ -44,6 +46,13 @@ export function Header() {
             html.classList.remove('dark');
             localStorage.setItem('theme', 'light');
         }
+
+        // Set cookie (for server) and localStorage (fallback)
+        const value = newIsDark ? 'dark' : 'light';
+        document.cookie = `theme=${value}; path=/; max-age=31536000`;
+        localStorage.setItem('theme', value);
+        
+        setIsDark(newIsDark);
         
         setIsDark(newIsDark); // ← Update button emoji
     };

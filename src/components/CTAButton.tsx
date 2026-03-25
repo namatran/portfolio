@@ -11,17 +11,18 @@ export function CTAButton() {
             href="/work"
             className="px-6 py-3 text-[15px] font-medium rounded cursor-pointer transition-all duration-200 inline"
             style={{ 
-                borderColor: 'var(--accent-cta)', 
-                color: 'var(--accent-cta)',
-                border: '1.5px solid var(--accent-cta)'
+                border: '1.5px solid var(--accent-cta)',
+                color: 'var(--accent-cta-text)'
             }}
             onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = 'var(--accent-cta)'
-                e.currentTarget.style.color = 'white'
+                const el = e.currentTarget as HTMLElement
+                el.style.background = 'var(--accent-cta)'
+                el.style.color = 'var(--light-bg)'
             }}
             onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = 'transparent'
-                e.currentTarget.style.color = 'var(--accent-cta)'
+                const el = e.currentTarget as HTMLElement
+                el.style.background = 'transparent'
+                el.style.color = 'var(--accent-cta-text)'
             }}
             onClick={() => playClick2()}
         >

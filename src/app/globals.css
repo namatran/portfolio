@@ -9,7 +9,8 @@
   --light-text-hover: #8B8985;
   --light-border: #E8E6E1;
   --accent-primary: #1A8B7A;
-  --accent-cta: #FBBF24;
+  --accent-cta: #FBBF24;         /* border + hover bg */
+  --accent-cta-text: #9A6A00;    /* text only — 4.53:1 on #FAFAF8 ✓ */
 }
 
 html.dark {
@@ -20,7 +21,8 @@ html.dark {
   --light-text-tertiary: #C5C2BB;
   --light-text-hover: #B5B2AB;
   --light-border: #2A2926;
-  --accent-cta: #1A8B7A;
+  --accent-cta: #1A8B7A;         /* border + hover bg */
+  --accent-cta-text: #5DCAA5;    /* text only — 9.55:1 on #0F0F0D ✓ */
 }
 
 body {
@@ -30,33 +32,102 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
+/* ─── Typography scale (matches mockup exactly) ─── */
+ 
 .page-title {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.5;
+  font-size: 2rem;        /* 32px — section H2 */
+  font-weight: 500;
+  letter-spacing: -0.5px; /* fixed: was missing unit */
 }
-
+ 
+.hero-title {
+  font-size: 3rem;        /* 48px */
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+ 
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;   /* 36px on mobile */
+  }
+}
+ 
 .page-subtitle {
-    font-size: 0.875rem;
-    color: var(--light-text-secondary);
+  font-size: 0.875rem;    /* 14px */
+  color: var(--light-text-secondary);
 }
-
+ 
 .section-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--light-text-tertiary);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
+  font-size: 0.75rem;     /* 12px */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--light-text-tertiary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
 }
-
+ 
 .section-text {
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--light-text-secondary);
+  font-size: 0.9375rem;   /* 15px */
+  line-height: 1.7;
+  color: var(--light-text-secondary);
 }
-
+ 
+/* ─── Shared UI ─── */
+ 
 .divider {
-    border: none;
-    border-top: 1px solid var(--light-border);
+  border: none;
+  border-top: 1px solid var(--light-border);
 }
+ 
+/* ─── CTA / Link buttons ─── */
+/* Hover contrast fix: amber bg needs dark text; teal bg can use white */
+.btn-cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--accent-cta);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--accent-cta);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+ 
+.btn-cta:hover {
+  background: var(--accent-cta);
+  /* Light mode: amber bg → dark text for contrast
+     Dark mode: teal bg → white is fine, but we use --light-bg which is near-black in dark */
+  color: var(--light-bg);
+  transform: translateY(-2px);
+}
+ 
+/* ─── Tag pill ─── */
+/* Light: #0F6E56 on rgba(26,139,122,0.1)+#FAFAF8 = 5.50:1 ✓ */
+/* Dark:  #5DCAA5 on rgba(26,139,122,0.1)+#0F0F0D = 8.45:1 ✓ */
+.tag-pill {
+  border: 0.5px solid var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
+  background: rgba(26,139,122,0.1);
+  color: #0F6E56;
+}
+ 
+html.dark .tag-pill {
+  color: #5DCAA5;
+}
+ 
+/* ─── Accent links (about page) ─── */
+/* #1A8B7A on #FAFAF8 = 4.00:1 — fails AA for normal text */
+/* #0F6E56 on #FAFAF8 = 5.94:1 ✓ */
+.accent-link {
+  color: #0F6E56;
+  border-bottom-color: #0F6E56;
+}
+ 
+html.dark .accent-link {
+  color: #5DCAA5;
+  border-bottom-color: #5DCAA5;
+}
+ 

@@ -1,12 +1,18 @@
+import type { Metadata } from 'next'
 import { ProjectCard } from '@/components/ProjectCard'
 import { projects } from '@/lib/projects'
 import styles from '@/components/ProjectCard.module.css'
+
+export const metadata: Metadata = {
+    title: 'Work',
+    description: 'Full-stack projects built with React, Next.js, Express, and SQLite. From Pokédex to Movie Lookup V2.  ',
+}
 
 export default function WorksPage() {
     return (
         <main className="py-12">
             <h1 className="page-title mb-1">Work</h1>
-            <p className="page-subtitle mb-6">Some of the work that i have been doing!</p>
+            <p className="page-subtitle mb-6">Some of the work that I have been doing!</p>
 
             <hr className="divider mb-6" />    
 

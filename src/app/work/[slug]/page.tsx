@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import { use } from 'react'
 import { projects } from '@/lib/projects'
 import { notFound } from 'next/navigation'
@@ -7,6 +8,24 @@ import { ProjectNav } from '@/components/ProjectNav'
 import { TagList } from '@/components/Taglist'
 import { Links } from '@/components/Links'
 import { Gallery } from '@/components/Gallery'
+
+type Props = { params: Promise<{ slug: string }> }
+ 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params
+    const project = projects.find(p => p.slug === slug)
+ 
+    if (!project) return { title: 'Project Not Found' }
+ 
+    return {
+        title: project.title,
+        description: project.description,
+    }
+}
+
+export function generateStaticParams() {
+    return projects.map(p => ({ slug: p.slug }))
+}
 
 export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params)
@@ -24,18 +43,19 @@ export default function ProjectPage({ params }: { params: Promise<{ slug: string
                 {project.image} 
             </div> */}
 
-            <div className="relative w-full h-136 rounded-xl overflow-hidden mb-12">
+            <div className="w-full rounded-xl overflow-hidden mb-12">
                 <Image
                     src={project.image}
-                    alt="Project image"
-                    fill
-                    className="object-cover"
+                    alt={`Screenshot of ${project.title}`}
+                    width={1200}
+                    height={675}
+                    className="w-full h-auto"
+                    priority
                 />
             </div>
 
             <hr className="divider mb-12" />
 
-            {/* max-w-2xl */}
             <div className="mx-2 mt-8">
                 
                 {project.sections.map((section, i) => (
