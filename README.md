@@ -55,3 +55,10 @@ Projects live in `src/lib/projects.ts`. Add a new object to the `projects` array
   ],
 }
 ```
+
+## Screenshots
+![Home](public/home.png)
+![HomeDark](public/home-dark.png)
+![Work](public/work.png)
+![WorkDetail](public/work-detail.png)
+![Insights](publc/insights.png)
