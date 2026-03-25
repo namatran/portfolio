@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Links } from "@/components/Links";
-import Image from 'next/image'
+import Image from 'next/image'  
 
 export const metadata: Metadata = {
     title: 'About',

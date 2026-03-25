@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
+import { SpeedInsights } from '@vercel/speed-insights/next'; 
 import { SoundProvider } from '@/components/SoundProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -48,6 +49,7 @@ export default async function RootLayout({
           </main>
           <Footer />
         </SoundProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
