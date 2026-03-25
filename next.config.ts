@@ -1,31 +1,30 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  // Strict mode catches subtle React bugs in dev
+// next.config.js
+const nextConfig = {
   reactStrictMode: true,
-
   images: {
-      // Add external image domains here as you need them.
-      // e.g. TMDB posters when you pull in real project screenshots
-      remotePatterns: [
-          {
-              protocol: 'https',
-              hostname: 'image.tmdb.org',
-          },
-      ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'image.tmdb.org',
+      },
+    ],
   },
   async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex, nofollow',
-          },
-        ],
-      },
-    ];
+    // Only block indexing in non-production environments
+    if (process.env.NODE_ENV !== 'production') {
+      return [
+        {
+          source: '/:path*',
+          headers: [
+            {
+              key: 'X-Robots-Tag',
+              value: 'noindex, nofollow',
+            },
+          ],
+        },
+      ];
+    }
+    return [];
   },
   experimental: {
     inlineCss: true,
