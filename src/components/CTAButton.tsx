@@ -10,19 +10,17 @@ export function CTAButton() {
         <Link
             href="/work"
             className="px-6 py-3 text-[15px] font-medium rounded cursor-pointer transition-all duration-200 inline"
+            // In CTAButton.tsx — flip the default state
             style={{ 
-                border: '1.5px solid var(--accent-cta)',
-                color: 'var(--accent-cta-text)'
+                background: 'var(--accent-cta)',
+                color: 'var(--light-text)',
+                border: '1.5px solid var(--accent-cta)'
             }}
             onMouseEnter={e => {
-                const el = e.currentTarget as HTMLElement
-                el.style.background = 'var(--accent-cta)'
-                el.style.color = 'var(--light-bg)'
+                (e.currentTarget as HTMLElement).style.opacity = '0.8'
             }}
             onMouseLeave={e => {
-                const el = e.currentTarget as HTMLElement
-                el.style.background = 'transparent'
-                el.style.color = 'var(--accent-cta-text)'
+                (e.currentTarget as HTMLElement).style.opacity = '1'
             }}
             onClick={() => playClick2()}
         >
