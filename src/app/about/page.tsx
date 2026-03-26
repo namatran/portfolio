@@ -29,7 +29,7 @@ export default function AboutPage() {
 
                 <ul className="section-text mt-4 ml-6 list-disc">
                     <li className="mb-2">
-                        create full-stack <a href="https://github.com/namatran" className="border-b-[1.5px] text-[var(--accent-primary)]">apps</a> and ship them,
+                        create actual full-stack <a href="https://github.com/namatran" className="border-b-[1.5px] text-[var(--accent-primary)]">apps</a> with my learning and ship them,
                     </li>
                     <li className="mb-2">
                         create <a href="https://www.youtube.com/@naminabush" className="border-b-[1.5px] text-[var(--accent-primary)]">

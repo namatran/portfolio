@@ -16,7 +16,7 @@ export default function Home() {
           Building <em style={{ fontStyle: 'italic', fontFamily: 'Georgia, serif' }}>real</em> projects
         </h1>
         <p className="text-[16px] leading-[1.6] max-w-125 mb-10 text-[var(--light-text-secondary)]">
-          I build real-world web apps and share content around what I'm building.
+          I build web apps and share content around what I'm building.
         </p>
 
         <CTAButton/>
