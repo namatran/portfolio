@@ -4,8 +4,10 @@ import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { useNoteSound } from '@/lib/useNoteSound'
 
-export function Gallery({ images }: { images: string[] }) {
-    const [selected, setSelected] = useState<string | null>(null)
+type ImageItem = { src: string; caption?: string }
+
+export function Gallery({ images }: { images: ImageItem[] }) {
+    const [selected, setSelected] = useState<{ src: string; caption?: string } | null>(null)
     const { playClick, playExit } = useNoteSound()
     const overlayRef = useRef<HTMLDivElement>(null)
 
@@ -21,20 +23,26 @@ export function Gallery({ images }: { images: string[] }) {
     return (
         <>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {images.map((src, i) => (
+                {images.map((item, i) => (
                     <button
                         key={i}
                         className="relative w-full aspect-video rounded-lg overflow-hidden cursor-zoom-in hover:scale-105 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:ring-offset-2"
-                        onClick={() => { setSelected(src); playClick() }}
+                        onClick={() => { setSelected(item); playClick() }}
                         aria-label={`View screenshot ${i + 1} of ${images.length}`}
                     >
+                    <div className="relative w-full aspect-video">
                         <Image
-                            src={src}
-                            alt={`Project screenshot ${i + 1}`}
+                            src={item.src}
+                            alt={item.caption ?? `Project screenshot ${i + 1}`}
                             fill
+                            sizes="(max-width: 640px) 50vw, 33vw"
                             className="object-cover"
                             loading="lazy"
                         />
+                    </div>
+                    {item.caption && (
+                        <p className="px-2 py-1.5 text-xs text-[var(--light-text-secondary)] text-left">{item.caption}</p>
+                    )}
                     </button>
                 ))}
             </div>
@@ -51,13 +59,20 @@ export function Gallery({ images }: { images: string[] }) {
                     onClick={close}
                     onKeyDown={e => { if (e.key === 'Escape') close() }}
                 >
-                    <div className="relative w-[80vw] h-[80vh]">
+                    <div className="relative w-[70vw] h-[70vh]">
                         <Image
-                            src={selected}
+                            src={selected.src}
                             alt="Enlarged project screenshot"
                             fill
+                            sizes="80vw"
                             className="object-contain rounded-xl"
                         />
+
+                        {selected.caption && (
+                            <p className="absolute bottom-[-3rem] left-0 right-0 text-center text-xl text-white/70">
+                                {selected.caption}
+                            </p>
+                        )}
                     </div>
                 </div>
             )}
