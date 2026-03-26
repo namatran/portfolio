@@ -78,7 +78,7 @@ export default function AboutPage() {
         <h1 className="section-label">Contact!</h1>
         <p className="section-text mb-4">Interested in collaborating, have questions, or want to talk?</p>
         <Links links={[
-
+            { text: 'Email', url: 'mailto:namatrancontact@gmail.com' },
             { text: 'LinkedIn', url: 'https://www.linkedin.com/in/nam-atran/' }, 
             { text: 'GitHub', url: 'https://github.com/namatran' }
         ]}/>
