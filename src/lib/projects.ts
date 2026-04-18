@@ -13,6 +13,26 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        id: 'wordle-remake',
+        featured: true,
+        slug: 'wordle-remake',
+        image: '/projects/wordle-remake/wordle-remake-home.png',
+        images: [
+            { src: '/projects/wordle-remake/wordle-remake-home.png', caption: 'Home page with all guesses' },
+        ],
+        title: 'ReactJS Wordle Remake',
+        description: 'React rebuild of Wordle from scratch with no AI, just fundamentals and googling. Two-pass frequency algorithm for accurate duplicate letter handling.',
+        sections: [
+            { label: 'Overview', content: 'Built from-scratch a remake of the Wordle game in ReactJS with no AI, only fundamentals and google. The goal was to understand and implement the core React logic independently, but needed help on the letter-frequency algorithm that makes duplicate letter handling work correctly.' },
+            { label: 'What I learned', content: 'Refreshed on React fundamentals in component architecture and state management with hooks.' }
+        ],
+        tags: ['ReactJS'],
+        links: [
+            { text: 'Repository', url: 'https://github.com/namatran/wordle-clone-remake' }, 
+            { text: 'Live Demo', url: 'https://wordle-clone-remake.vercel.app' }
+        ],
+    },
+    {
         id: 'movie-lookup-v2',
         featured: true,
         slug: 'movie-lookup-v2',
@@ -38,7 +58,6 @@ export const projects: Project[] = [
     },
     {
         id: 'kleinhacks-whisper',
-        featured: true,
         slug: 'kleinhacks-whisper',
         image: '/projects/whisper/home.png',
         images: [
@@ -105,6 +124,22 @@ export const projects: Project[] = [
         ],
     },
     {
+        id: 'wordle-clone',
+        slug: 'wordle-clone',
+        image: '/projects/wordle/home.png',
+        title: 'Wordle Clone',
+        description: 'React rebuild of Wordle. First solo project after learning the fundamentals — state, events, and component logic.',
+        sections: [
+            { label: 'Overview', content: 'A fully functional Wordle clone built with React. Includes the full game loop: 6 attempts, color-coded feedback for correct/misplaced/wrong letters, and win/loss states.' },
+            { label: 'What I learned', content: 'First project where I had to manage non-trivial React state across multiple components. Learned how useState works in practice, how to handle keyboard events, and how to think in components rather than in DOM manipulation.' },
+        ],
+        tags: ['React', 'JavaScript', 'CSS'],
+        links: [
+            { text: 'Repository', url: 'https://github.com/namatran/wordle-clone' },
+            { text: 'Live Demo', url: 'https://namatran-wordle-clone.vercel.app/' },
+        ],
+    },
+    {
         id: 'book-keeper',
         slug: 'book-keeper',
         image: '/projects/book-keeper/get-books.png',
@@ -123,21 +158,5 @@ export const projects: Project[] = [
         links: [
             { text: 'Repository', url: 'https://github.com/namatran/book-keeper' }
         ]
-    },
-    {
-        id: 'wordle-clone',
-        slug: 'wordle-clone',
-        image: '/projects/wordle/home.png',
-        title: 'Wordle Clone',
-        description: 'React rebuild of Wordle. First solo project after learning the fundamentals — state, events, and component logic.',
-        sections: [
-            { label: 'Overview', content: 'A fully functional Wordle clone built with React. Includes the full game loop: 6 attempts, color-coded feedback for correct/misplaced/wrong letters, and win/loss states.' },
-            { label: 'What I learned', content: 'First project where I had to manage non-trivial React state across multiple components. Learned how useState works in practice, how to handle keyboard events, and how to think in components rather than in DOM manipulation.' },
-        ],
-        tags: ['React', 'JavaScript', 'CSS'],
-        links: [
-            { text: 'Repository', url: 'https://github.com/namatran/wordle-clone' },
-            { text: 'Live Demo', url: 'https://namatran-wordle-clone.vercel.app/' },
-        ],
     },
 ]
